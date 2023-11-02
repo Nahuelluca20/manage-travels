@@ -1,10 +1,10 @@
 import type {Metadata} from "next";
 
 import "./globals.css";
-import {Lato} from "next/font/google";
+import {Inter} from "next/font/google";
 import {ClerkProvider} from "@clerk/nextjs";
 
-const inter = Lato({weight: ["100", "300", "400", "700", "900"]});
+const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Manage Travels",
