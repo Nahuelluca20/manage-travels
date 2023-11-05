@@ -6,6 +6,7 @@ import {ClerkProvider} from "@clerk/nextjs";
 
 import {ThemeProvider} from "@/components/theme-provider";
 import {cn} from "@/lib/utils";
+import Navbar from "@/components/navbar";
 
 import Provider from "./_trpc/Provider";
 
@@ -24,19 +25,17 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <ClerkProvider>
       <html suppressHydrationWarning lang="en">
         <body
-          className={cn(
-            "max-w-[1024px] px-5 md:px-8 xl:px-0 mx-auto min-h-screen bg-background font-sans antialiased",
-            fontSans.variable,
-          )}
+          className={cn(" min-h-screen bg-background font-sans antialiased", fontSans.variable)}
         >
           <Provider>
             <ThemeProvider
               disableTransitionOnChange
               enableSystem
               attribute="class"
-              defaultTheme="dark"
+              defaultTheme="system"
             >
-              {children}
+              <Navbar />
+              <div className="max-w-[1024px] px-5 md:px-8 xl:px-0 mt-20 mx-auto">{children}</div>
               {/* {children} */}
             </ThemeProvider>
           </Provider>

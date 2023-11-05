@@ -1,14 +1,13 @@
 import type {User} from "@clerk/nextjs/api";
 
-import {currentUser} from "@clerk/nextjs";
+import {SignOutButton, currentUser} from "@clerk/nextjs";
 
 import {Button} from "@/components/ui/button";
 
 import {serverClient} from "./_trpc/server-client";
-import SignOut from "./components/signout-button";
 
 export default async function Home() {
-  const user: User | null = await currentUser();
+  // const user: User | null = await currentUser();
   const todos = await serverClient.getTodos();
   const addTodos = await serverClient.addTodo("todos");
   // const travels = user?.id && (await serverClient.getTravels(user?.id));
@@ -20,7 +19,7 @@ export default async function Home() {
       {todos?.map((todo, i) => <h1 key={i}>{todo}</h1>)}
       {addTodos}
       <Button>Button</Button>
-      <SignOut />
+      <SignOutButton />
     </main>
   );
 }
