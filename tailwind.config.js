@@ -20,6 +20,9 @@ module.exports = {
         zeppelinGray: {
           100: "#00000080",
         },
+        zeppelinOrange: {
+          500: "#FF642E",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
