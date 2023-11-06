@@ -32,7 +32,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               disableTransitionOnChange
               enableSystem
               attribute="class"
-              defaultTheme="system"
+              defaultTheme="light"
             >
               <Navbar />
               <div className="max-w-[1024px] px-5 md:px-8 xl:px-0 mt-20 mx-auto">{children}</div>

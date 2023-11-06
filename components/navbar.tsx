@@ -16,8 +16,8 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
       className={`transition-colors px-3 rounded-2xl font-medium py-1 link ${
         isActive ? "text-white" : ""
       } ${
-        isActive ? "bg-blue-500" : ""
-      } transform hover:scale-105 hover:bg-blue-500 hover:text-white`}
+        isActive ? "bg-orange-500" : ""
+      } transform hover:scale-105 hover:bg-orange-500 hover:text-white`}
       href={href}
     >
       {text}
