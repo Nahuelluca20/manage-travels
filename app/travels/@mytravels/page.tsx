@@ -4,10 +4,9 @@ import {currentUser} from "@clerk/nextjs";
 import {Suspense} from "react";
 
 import TravelCard from "@/components/cards/travel-card";
+import CardTravelSkeleton from "@/components/cards/card-travel-skeleton";
 
 import {serverClient} from "../../_trpc/server-client";
-
-import Loading from "./loading";
 
 export default async function page() {
   const user: User | null = await currentUser();
@@ -18,7 +17,7 @@ export default async function page() {
       <div className="flex flex-wrap max-w-[1024px] gap-4 mt-10">
         {travelsIds &&
           travelsIds.map((travel) => (
-            <Suspense key={travel.id} fallback={<Loading />}>
+            <Suspense key={travel.id} fallback={<CardTravelSkeleton />}>
               <TravelCard travelId={travel.id} />
             </Suspense>
           ))}
