@@ -9,7 +9,7 @@ export default function Home() {
     <main className="w-full">
       <Link href={"/help"}>
         <Button
-          className="py-6 rounded-[1000px] dark:text-gray-200 text-zeppelinGray-100 font-semibold gap-2"
+          className="py-6 w-full sm:w-fit rounded-[1000px] dark:text-gray-200 text-zeppelinGray-100 font-semibold gap-2"
           variant={"outline"}
         >
           <Badge className="dark:bg-white dark:text-black bg-neutral-900 hover:bg-neutral-900">

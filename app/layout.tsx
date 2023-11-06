@@ -35,7 +35,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               defaultTheme="light"
             >
               <Navbar />
-              <div className="max-w-[1024px] px-5 md:px-8 xl:px-0 mt-48 md:mt-32 mx-auto">
+              <div className="max-w-[1024px] px-5 md:px-8 xl:px-0 mt-36 md:mt-32 mx-auto">
                 {children}
               </div>
             </ThemeProvider>
