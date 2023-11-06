@@ -2,7 +2,7 @@
 import Image from "next/image";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {UserButton, useUser} from "@clerk/nextjs";
+import {SignInButton, UserButton, useUser, SignUpButton} from "@clerk/nextjs";
 
 import ZeppelinIcon from "@/assets/icons/zeppelin.svg";
 
@@ -34,7 +34,6 @@ export default function Navbar() {
     {text: "Inicio", href: "/"},
     {text: "Viajes", href: "/travels"},
     {text: "Agregar viaje", href: "/add"},
-    // {text: "Perfil", href: "/user-profile"},
     {text: "Ayuda", href: "/help"},
   ];
 
@@ -44,7 +43,7 @@ export default function Navbar() {
         <Link href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
-        <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[11px] px-6">
+        <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[8px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
@@ -56,16 +55,20 @@ export default function Navbar() {
 
         {isSignedIn ? (
           <div className="flex gap-2 items-center">
-            <UserButton />
+            <UserButton afterSignOutUrl="/" />
             <ModeToggle />
           </div>
         ) : (
           <ul className="flex gap-1 items-center">
             <li>
-              <Button variant={"ghost"}>Login</Button>
+              <SignInButton>
+                <Button variant={"ghost"}>Login</Button>
+              </SignInButton>
             </li>
             <li>
-              <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
+              <SignUpButton>
+                <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
+              </SignUpButton>
             </li>
           </ul>
         )}

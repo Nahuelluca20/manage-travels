@@ -1,6 +1,6 @@
 import {serverClient} from "@/app/_trpc/server-client";
 
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "../ui/card";
+import {Card, CardDescription, CardHeader, CardTitle} from "../ui/card";
 
 export default async function TravelCard({travelId}: {travelId: string}) {
   const travelInfo = travelId && (await serverClient.getTravelInfoById(travelId));
