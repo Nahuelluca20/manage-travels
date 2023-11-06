@@ -15,6 +15,33 @@ export const appRouter = router({
     return `esto es el input ${input}`;
   }),
 
+  getTravelInfoById: publicProcedure.input(z.string()).query(async (opts) => {
+    return prisma.post_travels.findMany({
+      where: {
+        id: opts.input,
+      },
+      select: {
+        title: true,
+        country: true,
+        city: true,
+        image: true,
+      },
+    });
+  }),
+
+  getTravelsIds: publicProcedure.input(z.string()).query(async (opts) => {
+    return prisma.post_travels.findMany({
+      where: {
+        user: {
+          external_id: opts.input,
+        },
+      },
+      select: {
+        id: true,
+      },
+    });
+  }),
+
   getTravels: publicProcedure.input(z.string()).query(async (opts) => {
     return prisma.post_travels.findMany({
       where: {
