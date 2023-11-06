@@ -28,7 +28,8 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
 export default function Navbar() {
   const pathname = usePathname();
   const routes = [
-    {text: "Viajes", href: "/"},
+    {text: "Inicio", href: "/"},
+    {text: "Viajes", href: "/travels"},
     {text: "Agregar viaje", href: "/add"},
     {text: "Perfil", href: "/user-profile"},
     {text: "Ayuda", href: "/help"},
@@ -37,8 +38,10 @@ export default function Navbar() {
   return (
     <header>
       <nav className="max-w-[1024px] px-5 md:px-8 xl:px-0 mx-auto flex items-center mt-5 justify-between">
-        <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
-        <Card className="shadow-2xl rounded-full w-[450px] py-[11px] px-6">
+        <Link href={"/"}>
+          <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
+        </Link>
+        <Card className="shadow-2xl rounded-full w-[500px] py-[11px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
