@@ -2,7 +2,7 @@
 import Image from "next/image";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {useUser} from "@clerk/nextjs";
+import {UserButton, useUser} from "@clerk/nextjs";
 
 import ZeppelinIcon from "@/assets/icons/zeppelin.svg";
 
@@ -34,17 +34,17 @@ export default function Navbar() {
     {text: "Inicio", href: "/"},
     {text: "Viajes", href: "/travels"},
     {text: "Agregar viaje", href: "/add"},
-    {text: "Perfil", href: "/user-profile"},
+    // {text: "Perfil", href: "/user-profile"},
     {text: "Ayuda", href: "/help"},
   ];
 
   return (
-    <header className="bg-background py-3 fixed top-0 w-full">
+    <header className="bg-background py-3 fixed top-0 w-full z-10">
       <nav className="max-w-[1024px] px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
         <Link href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
-        <Card className="hidden sm:flex rounded-full w-[375px] md:w-[450px] py-[11px] px-6">
+        <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[11px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
@@ -55,7 +55,10 @@ export default function Navbar() {
         </Card>
 
         {isSignedIn ? (
-          <ModeToggle />
+          <div className="flex gap-2 items-center">
+            <UserButton />
+            <ModeToggle />
+          </div>
         ) : (
           <ul className="flex gap-1 items-center">
             <li>
