@@ -10,7 +10,7 @@ export default function SearchBar() {
           placeholder="Buscar viaje"
           type="text"
         />
-        <Button className="h-[40px] bg-orange-500" type="submit">
+        <Button className="h-[40px] bg-zeppelinOrange-500" type="submit">
           Buscar
         </Button>
       </div>

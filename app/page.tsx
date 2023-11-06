@@ -21,10 +21,10 @@ export default function Home() {
           </span>
         </Button>
       </Link>
-      <h1 className="dark:text-white text-neutral-900 mt-16 font-bold text-[34px] md:text-[50px] leading-[40px] lg:text-[80px] lg:leading-[80px]">
+      <h1 className="dark:text-white text-neutral-900 mt-5 md:mt-16 font-bold text-[34px] md:text-[50px] leading-[40px] lg:text-[80px] lg:leading-[80px]">
         Administra los viajes <br />y los paquetes que vendes.
       </h1>
-      <Button className="w-[200px] lg:mt-16 mt-10 bg-orange-500 h-[52px]">
+      <Button className="w-[200px] lg:mt-16 mt-10 bg-zeppelinOrange-500 h-[52px]">
         <span className="text-xl">Comenzar gratis</span>
       </Button>
     </main>
