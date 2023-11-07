@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <header className="bg-background py-3 fixed top-0 w-full z-10">
       <nav className="max-w-[1200px] px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
-        <Link className="w-[140px]" href={"/"}>
+        <Link className={`w-[50px]  ${isSignedIn ? "xl:w-[75px]" : "xl:w-[140px]"}`} href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
         <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[8px] px-6">
@@ -53,25 +53,27 @@ export default function Navbar() {
           </ul>
         </Card>
 
-        {isSignedIn ? (
-          <div className="flex gap-2 items-center">
-            <UserButton afterSignOutUrl="/" />
-            <ModeToggle />
-          </div>
-        ) : (
-          <ul className="flex gap-1 items-center">
-            <li>
-              <SignInButton>
-                <Button variant={"ghost"}>Login</Button>
-              </SignInButton>
-            </li>
-            <li>
-              <SignUpButton>
-                <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
-              </SignUpButton>
-            </li>
-          </ul>
-        )}
+        <div className=" w-[76px] h-[36px]">
+          {isSignedIn ? (
+            <div className="flex gap-2 items-center">
+              <UserButton afterSignOutUrl="/" />
+              <ModeToggle />
+            </div>
+          ) : (
+            <ul className="flex gap-1 items-center">
+              <li>
+                <SignInButton>
+                  <Button variant={"ghost"}>Login</Button>
+                </SignInButton>
+              </li>
+              <li>
+                <SignUpButton>
+                  <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
+                </SignUpButton>
+              </li>
+            </ul>
+          )}
+        </div>
       </nav>
       <nav className="sm:hidden flex w-full justify-center mt-2">
         <Card className="rounded-full mx-2 w-full sm:w-[450px] py-[11px] px-6">
