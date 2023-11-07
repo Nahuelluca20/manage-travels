@@ -29,19 +29,6 @@ export const appRouter = router({
     });
   }),
 
-  getTravelsIds: publicProcedure.input(z.string()).query(async (opts) => {
-    return prisma.post_travels.findMany({
-      where: {
-        user: {
-          external_id: opts.input,
-        },
-      },
-      select: {
-        id: true,
-      },
-    });
-  }),
-
   getTravels: publicProcedure.input(z.string()).query(async (opts) => {
     return prisma.post_travels.findMany({
       where: {
@@ -51,6 +38,30 @@ export const appRouter = router({
       },
     });
   }),
+
+  getTravelsIds: publicProcedure
+    .input(
+      z.object({
+        userId: z.string(),
+        title: z.string(),
+      }),
+    )
+    .query(async (opts) => {
+      return prisma.post_travels.findMany({
+        where: {
+          user: {
+            external_id: opts.input.userId,
+          },
+          title: {
+            contains: opts.input.title,
+            mode: "insensitive",
+          },
+        },
+        select: {
+          id: true,
+        },
+      });
+    }),
 });
 
 export type AppRouter = typeof appRouter;

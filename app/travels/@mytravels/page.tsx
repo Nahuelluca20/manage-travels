@@ -16,7 +16,12 @@ export default async function page({
   searchParams: {[key: string]: string | string[] | undefined};
 }) {
   const user: User | null = await currentUser();
-  const travelsIds = user?.id && (await serverClient.getTravelsIds(user?.id));
+  const travelsIds =
+    user?.id &&
+    (await serverClient.getTravelsIds({
+      userId: user?.id,
+      title: (searchParams.search as string) ?? "",
+    }));
 
   if (travelsIds && travelsIds?.length <= 0) {
     return (
@@ -34,7 +39,6 @@ export default async function page({
       </div>
     );
   }
-  console.log(searchParams.search);
 
   return (
     <main>
