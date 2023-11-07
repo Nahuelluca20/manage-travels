@@ -39,8 +39,8 @@ export default function Navbar() {
 
   return (
     <header className="bg-background py-3 fixed top-0 w-full z-10">
-      <nav className="max-w-[1024px] px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
-        <Link href={"/"}>
+      <nav className="max-w-[1200px] px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
+        <Link className="w-[140px]" href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
         <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[8px] px-6">

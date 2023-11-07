@@ -10,7 +10,11 @@ import {Button} from "@/components/ui/button";
 
 import {serverClient} from "../../_trpc/server-client";
 
-export default async function page() {
+export default async function page({
+  searchParams,
+}: {
+  searchParams: {[key: string]: string | string[] | undefined};
+}) {
   const user: User | null = await currentUser();
   const travelsIds = user?.id && (await serverClient.getTravelsIds(user?.id));
 
@@ -30,6 +34,7 @@ export default async function page() {
       </div>
     );
   }
+  console.log(searchParams.search);
 
   return (
     <main>
