@@ -3,6 +3,7 @@ import Image from "next/image";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import {SignInButton, UserButton, useUser, SignUpButton} from "@clerk/nextjs";
+import clsx from "clsx";
 
 import ZeppelinIcon from "@/assets/icons/zeppelin.svg";
 
@@ -15,11 +16,13 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
 
   return (
     <Link
-      className={`flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm md:text-base font-medium py-1 link ${
-        isActive ? "text-white" : ""
-      } ${
-        isActive ? "bg-zeppelinOrange-500" : ""
-      } transform  hover:bg-zeppelinOrange-500 hover:text-white`}
+      className={clsx(
+        "flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm transform  hover:bg-zeppelinOrange-500 hover:text-white md:text-base font-medium py-1 link",
+        {
+          "bg-zeppelinOrange-500": isActive,
+          "text-white": isActive,
+        },
+      )}
       href={href}
     >
       {text}
