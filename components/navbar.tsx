@@ -43,7 +43,7 @@ export default function Navbar() {
         <Link className={`w-[50px]  ${isSignedIn ? "xl:w-[75px]" : "xl:w-[140px]"}`} href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
-        <Card className="hidden sm:flex rounded-full  md:w-[400px] py-[8px] px-6">
+        <Card className="hidden sm:flex rounded-full  md:w-[410px] py-[8px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">

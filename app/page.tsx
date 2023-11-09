@@ -25,7 +25,7 @@ export default function Home() {
         Administra los viajes <br />y los paquetes que vendes.
       </h1>
       <Button className="w-[200px] lg:mt-16 mt-10 bg-zeppelinOrange-500 h-[52px]">
-        <span className="text-xl">Comenzar gratis</span>
+        <span className="text-xl font-semibold">Comenzar gratis</span>
       </Button>
     </main>
   );

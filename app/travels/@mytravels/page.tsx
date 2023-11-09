@@ -25,7 +25,7 @@ export default async function page({
 
   if (travelsIds && travelsIds?.length <= 0) {
     return (
-      <div className="flex text-center justify-center max-w-[1024px] gap-4 mt-20">
+      <div className="flex text-center justify-center max-w-[1200px] gap-4 mt-20">
         <div className="grid gap-y-5">
           <h3 className="dark:text-gray-500 text-zeppelinGray-100 text-4xl font-semibold">
             No tienes viajes o paquetes disponibles

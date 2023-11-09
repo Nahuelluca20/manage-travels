@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 
 import "./globals.css";
-import {Inter as FontSans} from "next/font/google";
+import {Noto_Sans} from "next/font/google";
 import {ClerkProvider} from "@clerk/nextjs";
 
 import {ThemeProvider} from "@/components/theme-provider";
@@ -10,9 +10,9 @@ import Navbar from "@/components/navbar";
 
 import Provider from "./_trpc/Provider";
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+export const montserrat = Noto_Sans({
+  subsets: ["latin-ext"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <ClerkProvider>
       <html suppressHydrationWarning lang="en">
         <body
-          className={cn(" min-h-screen bg-background font-sans antialiased", fontSans.variable)}
+          className={cn(" min-h-screen bg-background font-sans antialiased", montserrat.className)}
         >
           <Provider>
             <ThemeProvider

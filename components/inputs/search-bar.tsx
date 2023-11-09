@@ -30,7 +30,10 @@ export default function SearchBar() {
           placeholder="Buscar viaje"
           type="text"
           onChange={(e) => {
-            setSearch(e.target.value);
+            const searchText = e.target.value;
+
+            setSearch(searchText);
+            router.push(pathname + "?" + createQueryString("search", searchText));
           }}
           onKeyDown={(e) => {
             e.key === "Enter" && router.push(pathname + "?" + createQueryString("search", search));
