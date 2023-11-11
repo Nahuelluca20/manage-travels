@@ -19,6 +19,8 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
       className={clsx(
         "flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm transform  hover:bg-zeppelinOrange-500 hover:text-white md:text-base font-medium py-1 link",
         {
+          // Sets the background color to zeppelin orange when the button is active
+
           "bg-zeppelinOrange-500": isActive,
           "text-white": isActive,
         },

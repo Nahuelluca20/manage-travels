@@ -7,8 +7,7 @@ import Link from "next/link";
 import TravelCard from "@/components/cards/travel-card";
 import CardTravelSkeleton from "@/components/cards/card-travel-skeleton";
 import {Button} from "@/components/ui/button";
-
-import {serverClient} from "../../_trpc/server-client";
+import {serverClient} from "@/app/_trpc/server-client";
 
 export default async function page({
   searchParams,
@@ -46,7 +45,9 @@ export default async function page({
         {travelsIds &&
           travelsIds.map((travel) => (
             <Suspense key={travel.id} fallback={<CardTravelSkeleton />}>
-              <TravelCard travelId={travel.id} />
+              <Link href={`/travels/${travel.id}`} target="_blank">
+                <TravelCard travelId={travel.id} />
+              </Link>
             </Suspense>
           ))}
       </div>
