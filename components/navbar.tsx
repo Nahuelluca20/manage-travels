@@ -68,12 +68,12 @@ export default function Navbar() {
           ) : (
             <ul className="flex gap-1 items-center">
               <li>
-                <SignInButton afterSignInUrl={`/travels`} redirectUrl={`/travels`}>
+                <SignInButton afterSignInUrl={`/`} redirectUrl={`/`}>
                   <Button variant={"ghost"}>Login</Button>
                 </SignInButton>
               </li>
               <li>
-                <SignUpButton afterSignUpUrl={`/travels`} redirectUrl={`/travels`}>
+                <SignUpButton afterSignUpUrl={`/`} redirectUrl={`/`}>
                   <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
                 </SignUpButton>
               </li>

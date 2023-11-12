@@ -23,31 +23,29 @@ export default function SearchBar() {
   );
 
   return (
-    <div>
-      <div className="flex justify-center w-full items-center space-x-5">
-        <Input
-          className="border-[2px] border-secondary-foreground w-full max-w-[600px] focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-          placeholder="Buscar viaje"
-          type="text"
-          onChange={(e) => {
-            const searchText = e.target.value;
+    <div className="flex justify-start w-full max-w-[730px] items-center space-x-5">
+      <Input
+        className="border-[2px] h-fit border-secondary-foreground w-full max-w-[600px] focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+        placeholder="Buscar viaje"
+        type="text"
+        onChange={(e) => {
+          const searchText = e.target.value;
 
-            setSearch(searchText);
-            router.push(pathname + "?" + createQueryString("search", searchText));
-          }}
-          onKeyDown={(e) => {
-            e.key === "Enter" && router.push(pathname + "?" + createQueryString("search", search));
-          }}
-        />
-        <Button
-          className="h-[40px] bg-zeppelinOrange-500"
-          onClick={() => {
-            router.push(pathname + "?" + createQueryString("search", search));
-          }}
-        >
-          Buscar
-        </Button>
-      </div>
+          setSearch(searchText);
+          router.push(pathname + "?" + createQueryString("search", searchText));
+        }}
+        onKeyDown={(e) => {
+          e.key === "Enter" && router.push(pathname + "?" + createQueryString("search", search));
+        }}
+      />
+      <Button
+        className="h-[40px] bg-zeppelinOrange-500"
+        onClick={() => {
+          router.push(pathname + "?" + createQueryString("search", search));
+        }}
+      >
+        Buscar
+      </Button>
     </div>
   );
 }
