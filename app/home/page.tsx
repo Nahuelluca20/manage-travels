@@ -4,7 +4,7 @@ import {ArrowRightIcon} from "@radix-ui/react-icons";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="w-full">
       <Link href={"/help"}>

@@ -37,9 +37,10 @@ export default function Navbar() {
   const {isSignedIn} = useUser();
   const routes = [
     {text: "Inicio", href: "/"},
-    {text: "Viajes", href: "/travels"},
-    {text: "Agregar viaje", href: "/add"},
+    {text: "Pricing", href: "/pricing"},
     {text: "Ayuda", href: "/help"},
+    // {text: "Viajes", href: "/travels"},
+    // {text: "Agregar viaje", href: "/add"},
   ];
 
   return (
@@ -48,7 +49,7 @@ export default function Navbar() {
         <Link className={`w-[50px]  ${isSignedIn ? "xl:w-[75px]" : "xl:w-[140px]"}`} href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
-        <Card className="hidden sm:flex rounded-full  md:w-[410px] py-[8px] px-6">
+        <Card className="hidden sm:flex rounded-full md:w-[310px] py-[5px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
@@ -81,7 +82,7 @@ export default function Navbar() {
         </div>
       </nav>
       <nav className="sm:hidden flex w-full justify-center mt-2">
-        <Card className="rounded-full mx-2 w-full sm:w-[450px] py-[11px] px-6">
+        <Card className="rounded-full mx-2 w-[300px] sm:w-[310px] py-[11px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">

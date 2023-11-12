@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 
-import "./globals.css";
+import "../globals.css";
 import {Noto_Sans} from "next/font/google";
 import {ClerkProvider} from "@clerk/nextjs";
 
@@ -8,7 +8,7 @@ import {ThemeProvider} from "@/components/theme-provider";
 import {cn} from "@/lib/utils";
 import Navbar from "@/components/navbar";
 
-import Provider from "./_trpc/Provider";
+import Provider from "../_trpc/Provider";
 
 export const montserrat = Noto_Sans({
   subsets: ["latin-ext"],
