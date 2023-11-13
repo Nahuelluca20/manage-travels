@@ -13,6 +13,7 @@ import Provider from "../_trpc/Provider";
 export const montserrat = Noto_Sans({
   subsets: ["latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
