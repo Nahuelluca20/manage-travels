@@ -53,11 +53,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               attribute="class"
               defaultTheme="light"
             >
-              <div className="max-w-[1200px] flex gap-10 justify-start px-5 md:px-8 xl:px-0 mt-10 mx-auto">
+              <div className="max-w-[1200px] lg:flex gap-10 lg:justify-start justify-center px-5 md:px-8 xl:px-0 mt-10 mx-auto">
                 <aside>
                   <Sidebar items={sidebarNavItems} />
                 </aside>
-                {children}
+                <section className="mt-5 ">{children}</section>
               </div>
             </ThemeProvider>
           </Provider>

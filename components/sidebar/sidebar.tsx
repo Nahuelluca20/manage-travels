@@ -19,7 +19,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
 
   return (
     <div className="w-[250px]">
-      <div className="ml-1">
+      <div className="ml-1 h-[20px]">
         <UserButton
           showName
           afterSignOutUrl="/"
@@ -33,7 +33,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
         />
       </div>
       <nav
-        className={cn("flex mt-10 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1", className)}
+        className={cn("flex  mt-5 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1", className)}
         {...props}
       >
         {items.map((item) => (
