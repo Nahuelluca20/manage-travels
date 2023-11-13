@@ -11,7 +11,11 @@ export const config = {
 };
 
 export default authMiddleware({
-  afterAuth(auth, req, evt) {
+  ignoredRoutes: ["/api/webhook/user", "/api/webhook/clerk"],
+
+  publicRoutes: ["/", "/api/webhook/user", "/api/webhook/clerk"],
+
+  afterAuth(auth, req) {
     const url = req.nextUrl;
 
     const searchParams = req.nextUrl.searchParams.toString();
@@ -42,5 +46,4 @@ export default authMiddleware({
     // Default case: redirect to sign in
     return redirectToSignIn({returnBackUrl: req.url});
   },
-  publicRoutes: ["/", "/api/webhook/user"],
 });

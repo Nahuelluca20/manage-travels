@@ -52,7 +52,7 @@ async function handler(request: Request) {
       },
     });
 
-    return NextResponse.json({message: "succesful"}, {status: 200});
+    return NextResponse.json({message: "Received"}, {status: 200});
   }
 
   return NextResponse.json({message: "500"}, {status: 500});
