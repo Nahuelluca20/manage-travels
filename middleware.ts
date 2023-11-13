@@ -42,4 +42,5 @@ export default authMiddleware({
     // Default case: redirect to sign in
     return redirectToSignIn({returnBackUrl: req.url});
   },
+  publicRoutes: ["/", "/api/webhook/user"],
 });
