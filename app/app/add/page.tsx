@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function page() {
-  return <div>add</div>;
+  return <div>add travel</div>;
 }
