@@ -6,6 +6,9 @@ import {usePathname} from "next/navigation";
 import {cn} from "@/lib/utils";
 
 import {buttonVariants} from "../ui/button";
+import {SwitchMode} from "../switch-mode";
+import {Separator} from "../ui/separator";
+import {Label} from "../ui/label";
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -19,13 +22,13 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
 
   return (
     <div className="w-[250px]">
-      <div className="ml-1 h-[20px]">
+      <div className="ml-1 h-[20px] gap-2">
         <UserButton
           showName
           afterSignOutUrl="/"
           appearance={{
             elements: {
-              userButtonOuterIdentifier: "text-primary-foreground text-xs font-semibold",
+              userButtonOuterIdentifier: "text-secondary-foreground text-xs font-semibold",
               userButtonBox: "flex flex-row-reverse gap-3",
               avatarBox: "w-[20px] h-[20px] rounded-full",
             },
@@ -33,7 +36,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
         />
       </div>
       <nav
-        className={cn("flex  mt-5 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1", className)}
+        className={cn("flex mt-5 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1", className)}
         {...props}
       >
         {items.map((item) => (
@@ -51,6 +54,11 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
             {item.title}
           </Link>
         ))}
+        <div className="pt-10 pl-2">
+          <Label className="text-xs text-muted-foreground">Settings</Label>
+          <Separator className="max-w-[200px] mb-2 mt-1" />
+          <SwitchMode />
+        </div>
       </nav>
     </div>
   );
