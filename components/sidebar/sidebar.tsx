@@ -25,7 +25,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
           afterSignOutUrl="/"
           appearance={{
             elements: {
-              userButtonOuterIdentifier: "text-white text-xs font-semibold",
+              userButtonOuterIdentifier: "text-primary-foreground text-xs font-semibold",
               userButtonBox: "flex flex-row-reverse gap-3",
               avatarBox: "w-[20px] h-[20px] rounded-full",
             },
