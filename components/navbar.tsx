@@ -39,13 +39,11 @@ export default function Navbar() {
     {text: "Inicio", href: "/"},
     {text: "Pricing", href: "/pricing"},
     {text: "Ayuda", href: "/help"},
-    // {text: "Viajes", href: "/travels"},
-    // {text: "Agregar viaje", href: "/add"},
   ];
 
   return (
     <header className="bg-background py-3 fixed top-0 w-full z-10">
-      <nav className="max-w-[1200px] px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
+      <nav className="max-w-[1200px] w-content px-5 md:px-8 xl:px-0 mx-auto flex items-center justify-between">
         <Link className={`w-[50px]  ${isSignedIn ? "xl:w-[75px]" : "xl:w-[140px]"}`} href={"/"}>
           <Image alt="logo" className="dark:invert" src={ZeppelinIcon} width={50} />
         </Link>
@@ -59,7 +57,7 @@ export default function Navbar() {
           </ul>
         </Card>
 
-        <div className=" w-[76px] h-[36px]">
+        <div className="xl:w-[76px] h-[36px]">
           {isSignedIn ? (
             <div className="flex gap-2 items-center">
               <UserButton afterSignOutUrl="/" />

@@ -41,7 +41,7 @@ export default async function page({
 
   return (
     <main>
-      <div className="grid md:grid-cols-3 max-w-[1024px] gap-4 mt-10">
+      <div className="grid md:grid-cols-3 items-stretch max-w-[1024px] gap-4 mt-10">
         {travelsIds &&
           travelsIds.map((travel) => (
             <Suspense key={travel.id} fallback={<CardTravelSkeleton />}>
