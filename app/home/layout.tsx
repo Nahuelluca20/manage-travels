@@ -11,9 +11,10 @@ import Navbar from "@/components/navbar";
 import Provider from "../_trpc/Provider";
 
 export const montserrat = Noto_Sans({
-  subsets: ["latin-ext"],
+  subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
