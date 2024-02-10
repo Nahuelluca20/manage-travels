@@ -17,11 +17,11 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
   return (
     <Link
       className={clsx(
-        "flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm transform  hover:bg-zeppelinOrange-500 hover:text-white md:text-base font-medium py-1 link",
+        "flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm transform  hover:bg-primary hover:text-white md:text-base font-medium py-1 link",
         {
           // Sets the background color to zeppelin orange when the button is active
 
-          "bg-zeppelinOrange-500": isActive,
+          "bg-primary": isActive,
           "text-white": isActive,
         },
       )}
@@ -72,7 +72,7 @@ export default function Navbar() {
               </li>
               <li>
                 <SignUpButton afterSignUpUrl={`/`} redirectUrl={`/`}>
-                  <Button className="bg-orange-600 w-[72px] h-[30px]">Sign up</Button>
+                  <Button className="bg-primary w-[72px] h-[30px]">Sign up</Button>
                 </SignUpButton>
               </li>
             </ul>
