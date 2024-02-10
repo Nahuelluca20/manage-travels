@@ -10,6 +10,8 @@ import {SwitchMode} from "../switch-mode";
 import {Separator} from "../ui/separator";
 import {Label} from "../ui/label";
 
+import MenuMobileDrawer from "./menu-mobile-drawer";
+
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
     href: string;
@@ -21,7 +23,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="w-[250px]">
+    <div className="w-full lg:w-[250px] lg:block flex justify-between flex-row-reverse items-center">
       <div className="ml-1 h-[20px] gap-2">
         <UserButton
           showName
@@ -35,8 +37,14 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
           }}
         />
       </div>
+      <div className="lg:hidden">
+        <MenuMobileDrawer items={items} />
+      </div>
       <nav
-        className={cn("flex mt-5 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1", className)}
+        className={cn(
+          "hidden lg:flex mt-5 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
+          className,
+        )}
         {...props}
       >
         {items.map((item) => (
