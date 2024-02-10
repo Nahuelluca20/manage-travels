@@ -13,7 +13,7 @@ export function SwitchMode() {
       <Label htmlFor="dark-mode">Dark Mode</Label>
       <Switch
         aria-readonly
-        checked={theme === "dark"}
+        checked={theme === "dark" ? true : false}
         id="dark-mode"
         onCheckedChange={() => {
           if (theme !== "dark") {
