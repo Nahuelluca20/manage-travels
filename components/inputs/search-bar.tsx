@@ -39,7 +39,7 @@ export default function SearchBar() {
         }}
       />
       <Button
-        className="h-[40px] bg-zeppelinOrange-500"
+        className="h-[40px]"
         onClick={() => {
           router.push(pathname + "?" + createQueryString("search", search));
         }}
