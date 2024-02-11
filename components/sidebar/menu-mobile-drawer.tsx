@@ -34,7 +34,7 @@ export default function MenuMobileDrawer({
         </Button>
       </DrawerTrigger>
       <DrawerPortal>
-        <DrawerContent className="pl-2 flex flex-col rounded-none h-full w-[90%] mt-24 fixed bottom-0 right-0">
+        <DrawerContent className="pl-2 flex flex-col rounded-none h-full max-w-[90%] sm:max-w-[40%] mt-24 fixed bottom-0 right-0">
           <DrawerHeader className="mt-5 w-full flex justify-between items-center">
             <DrawerTitle>Menu</DrawerTitle>
             <DrawerClose asChild>

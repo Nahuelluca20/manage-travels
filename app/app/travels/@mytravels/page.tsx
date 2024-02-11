@@ -30,9 +30,7 @@ export default async function page({
             No tienes viajes o paquetes disponibles
           </h3>
           <Link href={"/add"}>
-            <Button className="max-w-[130px] h-[40px] text-md bg-zeppelinOrange-500">
-              Agregar viaje
-            </Button>
+            <Button className="max-w-[130px] h-[40px] text-md">Agregar viaje</Button>
           </Link>
         </div>
       </div>

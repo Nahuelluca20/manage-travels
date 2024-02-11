@@ -38,5 +38,6 @@ model hotels {
   country      String
   city         String
   image        String
+  stars        Int
   post_travels post_travels[]
 }

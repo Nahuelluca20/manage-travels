@@ -1,8 +1,17 @@
-export default function Layout(props: {children: React.ReactNode; mytravels: React.ReactNode}) {
+export default function Layout({
+  children,
+  recentlyadded,
+  mytravels,
+}: {
+  children: React.ReactNode;
+  recentlyadded: React.ReactNode;
+  mytravels: React.ReactNode;
+}) {
   return (
-    <section>
-      {props.children}
-      {props.mytravels}
+    <section className="w-full">
+      {children}
+      {recentlyadded}
+      {mytravels}
     </section>
   );
 }
