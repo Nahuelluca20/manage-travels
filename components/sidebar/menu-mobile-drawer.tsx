@@ -44,13 +44,14 @@ export default function MenuMobileDrawer({
             </DrawerClose>
           </DrawerHeader>
           {items.map((item) => (
-            <Link
-              key={item.href}
-              className={cn(buttonVariants({variant: "ghost"}), "justify-start max-w-[216px]")}
-              href={item.href}
-            >
-              {item.title}
-            </Link>
+            <DrawerClose key={item.href} asChild>
+              <Link
+                className={cn(buttonVariants({variant: "ghost"}), "justify-start max-w-[216px]")}
+                href={item.href}
+              >
+                {item.title}
+              </Link>
+            </DrawerClose>
           ))}
 
           <DrawerFooter className="mb-5">
