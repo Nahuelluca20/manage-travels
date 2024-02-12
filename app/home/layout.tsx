@@ -8,8 +8,6 @@ import {ThemeProvider} from "@/components/theme-provider";
 import {cn} from "@/lib/utils";
 import Navbar from "@/components/navbar";
 
-import Provider from "../_trpc/Provider";
-
 export const montserrat = Noto_Sans({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -29,19 +27,17 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <body
           className={cn(" min-h-screen bg-background font-sans antialiased", montserrat.className)}
         >
-          <Provider>
-            <ThemeProvider
-              disableTransitionOnChange
-              enableSystem
-              attribute="class"
-              defaultTheme="light"
-            >
-              <Navbar />
-              <div className="max-w-[1200px] px-5 md:px-8 xl:px-0 mt-36 md:mt-32 mx-auto">
-                {children}
-              </div>
-            </ThemeProvider>
-          </Provider>
+          <ThemeProvider
+            disableTransitionOnChange
+            enableSystem
+            attribute="class"
+            defaultTheme="light"
+          >
+            <Navbar />
+            <div className="max-w-[1200px] px-5 md:px-8 xl:px-0 mt-36 md:mt-32 mx-auto">
+              {children}
+            </div>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
