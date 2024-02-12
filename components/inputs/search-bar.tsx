@@ -23,7 +23,7 @@ export default function SearchBar() {
   );
 
   return (
-    <div className="flex justify-start md:min-w-[500px] w-full max-w-[800px] items-center space-x-5">
+    <div className="flex justify-start md:min-w-[500px] w-full lg:min-w-[800px] max-w-[800px] items-center space-x-5">
       <Input
         className="border-[2px] h-fit border-secondary-foreground w-full max-w-[600px] focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent"
         placeholder="Buscar viaje"

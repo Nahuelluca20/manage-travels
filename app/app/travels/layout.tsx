@@ -1,6 +1,6 @@
 export default function Layout({
   children,
-  recentlyadded,
+  // recentlyadded,
   mytravels,
 }: {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ export default function Layout({
   return (
     <section className="w-full">
       {children}
-      {recentlyadded}
+      {/* {recentlyadded} */}
       {mytravels}
     </section>
   );
