@@ -4,6 +4,7 @@ import {z} from "zod";
 
 import {prisma} from "@/lib/prisma";
 import {action} from "@/lib/safe-action";
+import {handleRateLimit} from "@/utils/handleRateLimit";
 
 const getTravelsIdsSchema = z.object({
   userId: z.string().optional(),
@@ -13,6 +14,14 @@ const getTravelsIdsSchema = z.object({
 export const getTravelsIds = action(getTravelsIdsSchema, async ({userId, title}) => {
   if (userId) {
     try {
+      const rateLimitResult = await handleRateLimit();
+
+      if (rateLimitResult.error) {
+        return rateLimitResult;
+      }
+
+      console.log(rateLimitResult.limit, rateLimitResult.remaining);
+
       const travelsIds = await prisma.post_travels.findMany({
         where: {
           user: {
