@@ -7,7 +7,8 @@ import Link from "next/link";
 import TravelCard from "@/components/cards/travel-card";
 import CardTravelSkeleton from "@/components/cards/card-travel-skeleton";
 import {Button} from "@/components/ui/button";
-import {serverClient} from "@/app/_trpc/server-client";
+
+import {getTravelsIds} from "./queries";
 
 export default async function page({
   searchParams,
@@ -15,14 +16,14 @@ export default async function page({
   searchParams: {[key: string]: string | string[] | undefined};
 }) {
   const user: User | null = await currentUser();
-  const travelsIds =
-    user?.id &&
-    (await serverClient.getTravelsIds({
-      userId: user?.id,
-      title: (searchParams.search as string) ?? "",
-    }));
+  const userId = user?.id;
 
-  if (travelsIds && travelsIds?.length <= 0) {
+  const {data: travelIds} = await getTravelsIds({
+    userId,
+    title: (searchParams.search as string) ?? "",
+  });
+
+  if (travelIds?.success && travelIds?.success.length <= 0) {
     return (
       <div className="flex text-center justify-center max-w-[730px] gap-4 mt-20">
         <div className="grid gap-y-5">
@@ -40,8 +41,8 @@ export default async function page({
   return (
     <main>
       <div className="grid md:grid-cols-3 items-stretch max-w-[1024px] gap-4 mt-10">
-        {travelsIds &&
-          travelsIds.map((travel) => (
+        {travelIds?.success &&
+          travelIds?.success.map((travel) => (
             <Suspense key={travel.id} fallback={<CardTravelSkeleton />}>
               <Link href={`/travels/${travel.id}`} target="_blank">
                 <TravelCard travelId={travel.id} />
