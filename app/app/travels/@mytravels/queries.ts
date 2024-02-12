@@ -20,8 +20,6 @@ export const getTravelsIds = action(getTravelsIdsSchema, async ({userId, title})
         return rateLimitResult;
       }
 
-      console.log(rateLimitResult.limit, rateLimitResult.remaining);
-
       const travelsIds = await prisma.post_travels.findMany({
         where: {
           user: {
