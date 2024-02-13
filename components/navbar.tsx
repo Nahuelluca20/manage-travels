@@ -11,8 +11,12 @@ import {Card} from "./ui/card";
 import {ModeToggle} from "./mode-toggle";
 import {Button} from "./ui/button";
 
-function LinkComponent({text, href, pathname}: {text: string; href: string; pathname: string}) {
+function LinkComponent({text, href}: {text: string; href: string}) {
+  const pathname = usePathname();
+
   const isActive = pathname && (pathname === href || (pathname.startsWith(href) && href !== "/"));
+
+  console.log(pathname);
 
   return (
     <Link
@@ -32,7 +36,6 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
 }
 
 export default function Navbar() {
-  const pathname = usePathname();
   const {isSignedIn} = useUser();
   const routes = [
     {text: "Inicio", href: "/"},
@@ -50,7 +53,7 @@ export default function Navbar() {
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
-                <LinkComponent href={route.href} pathname={pathname} text={route.text} />
+                <LinkComponent href={route.href} text={route.text} />
               </li>
             ))}
           </ul>
@@ -83,7 +86,7 @@ export default function Navbar() {
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
               <li key={route.href} className="list-none">
-                <LinkComponent href={route.href} pathname={pathname} text={route.text} />
+                <LinkComponent href={route.href} text={route.text} />
               </li>
             ))}
           </ul>
