@@ -28,6 +28,7 @@ model User {
   attributes  Json
   name        String
   posts       post_travels[]
+  hotels      hotels[]
 }
 
 model hotels {
@@ -37,6 +38,9 @@ model hotels {
   createdAt    DateTime       @default(now())
   hotel_url    String
   image        String?
+  province     String
   stars        Int
+  user         User?          @relation(fields: [userId], references: [id])
+  userId       String?
   post_travels post_travels[]
 }
