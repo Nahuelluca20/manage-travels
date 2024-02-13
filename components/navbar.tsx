@@ -14,9 +14,7 @@ import {Button} from "./ui/button";
 function LinkComponent({text, href}: {text: string; href: string}) {
   const pathname = usePathname();
 
-  const isActive = pathname && (pathname === href || (pathname.startsWith(href) && href !== "/"));
-
-  console.log(pathname);
+  const isActive = pathname && (pathname === href || (pathname?.startsWith(href) && href !== "/"));
 
   return (
     <Link
