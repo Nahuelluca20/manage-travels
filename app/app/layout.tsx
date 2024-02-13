@@ -42,7 +42,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <ClerkProvider>
       <html suppressHydrationWarning lang="en">
         <body
-          className={cn(" min-h-screen bg-background font-sans antialiased", montserrat.className)}
+          className={cn("min-h-screen bg-background font-sans antialiased", montserrat.className)}
         >
           <ThemeProvider
             disableTransitionOnChange
@@ -54,7 +54,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               <aside>
                 <Sidebar items={sidebarNavItems} />
               </aside>
-              <section className="mt-5 ">{children}</section>
+              <section className="mt-5 lg:mt-0">{children}</section>
             </div>
           </ThemeProvider>
         </body>

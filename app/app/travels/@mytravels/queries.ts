@@ -57,7 +57,7 @@ export const getTravelInfoById = action(getTravelInfoByIdSchema, async ({id}) =>
           title: true,
           country: true,
           city: true,
-          image: true,
+          image_url: true,
         },
       });
 
