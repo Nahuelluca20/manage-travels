@@ -14,7 +14,7 @@ model post_travels {
   createdAt   DateTime @default(now())
   country     String
   city        String
-  image       String
+  image_url   String?
   user        User?    @relation(fields: [userId], references: [id])
   userId      String?
   hotels      hotels   @relation(fields: [hotelsId], references: [id])
@@ -37,7 +37,8 @@ model hotels {
   createdAt    DateTime       @default(now())
   country      String
   city         String
-  image        String
+  hotel_url    String
+  image        String?
   stars        Int
   post_travels post_travels[]
 }
