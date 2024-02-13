@@ -12,7 +12,7 @@ import {ModeToggle} from "./mode-toggle";
 import {Button} from "./ui/button";
 
 function LinkComponent({text, href, pathname}: {text: string; href: string; pathname: string}) {
-  const isActive = pathname === href || (pathname.startsWith(href) && href !== "/");
+  const isActive = pathname && (pathname === href || (pathname.startsWith(href) && href !== "/"));
 
   return (
     <Link
@@ -20,7 +20,6 @@ function LinkComponent({text, href, pathname}: {text: string; href: string; path
         "flex flex-wrap justify-center text-center transition-colors px-3 rounded-2xl text-sm transform  hover:bg-primary hover:text-white md:text-base font-medium py-1 link",
         {
           // Sets the background color to zeppelin orange when the button is active
-
           "bg-primary": isActive,
           "text-white": isActive,
         },
