@@ -14,16 +14,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {Input} from "@/components/ui/input";
-import {Label} from "@/components/ui/label";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {Separator} from "@/components/ui/separator";
 import {getHotels} from "@/app/app/add/queries";
 
+import AddHotelForm from "../forms/add-hotel";
+
 export async function SelectHotel() {
   const {data} = await getHotels({userId: "user_2cKXU9HgDRr1HapXnQiykmOYrUG", province: "MenDozA"});
-
-  console.log(data);
 
   return (
     <Dialog>
@@ -68,20 +66,7 @@ export async function SelectHotel() {
               <AccordionTrigger>Agrega un Hotel</AccordionTrigger>
             </Button>
             <AccordionContent>
-              <div className="grid gap-4 px-1 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label className="text-right" htmlFor="name">
-                    Name
-                  </Label>
-                  <Input className="col-span-3" defaultValue="Pedro Duarte" id="name" />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label className="text-right" htmlFor="username">
-                    Username
-                  </Label>
-                  <Input className="col-span-3" defaultValue="@peduarte" id="username" />
-                </div>
-              </div>
+              <AddHotelForm />
             </AccordionContent>
           </AccordionItem>
         </Accordion>

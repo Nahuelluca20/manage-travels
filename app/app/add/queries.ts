@@ -1,21 +1,10 @@
 "use server";
 
-import {z} from "zod";
-import {zfd} from "zod-form-data";
-
 import {action} from "@/lib/safe-action";
 import {handleRateLimit} from "@/utils/handleRateLimit";
 import {prisma} from "@/lib/prisma";
 
-const schema = zfd.formData({
-  email: zfd.text(z.string().email()),
-  password: zfd.text(z.string().min(8)),
-});
-
-const getHotelsSchema = z.object({
-  userId: z.string().optional(),
-  province: z.string(),
-});
+import {getHotelsSchema, postHotelSchema} from "./queries-schemas";
 
 export const getHotels = action(getHotelsSchema, async ({userId, province}) => {
   if (userId) {
@@ -48,3 +37,10 @@ export const getHotels = action(getHotelsSchema, async ({userId, province}) => {
     }
   }
 });
+
+export const postHotel = action(
+  postHotelSchema,
+  async ({name, description, province, userId, stars, hotelUrl}) => {
+    return "hola";
+  },
+);
