@@ -1,3 +1,5 @@
+import {currentUser} from "@clerk/nextjs";
+
 import {Button} from "@/components/ui/button";
 import {
   Dialog,
@@ -30,7 +32,7 @@ export async function SelectHotel() {
           Seleccionar hotel
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] w-[90%] sm:w-full rounded-md">
+      <DialogContent className="sm:max-w-[825px] w-[90%] lg:w-full rounded-md overflow-y-auto  max-h-[95%]">
         <DialogHeader>
           <DialogTitle>Seleccionar hotel</DialogTitle>
           <DialogDescription>
@@ -45,7 +47,7 @@ export async function SelectHotel() {
             </h4>
           </div>
         ) : (
-          <ScrollArea className="h-72 w-full rounded-md border" type="always">
+          <ScrollArea className="h-64 w-full rounded-md border" type="always">
             <div className="p-4">
               <h4 className="mb-4 text-sm font-medium leading-none">Hoteles</h4>
               {data?.success?.map((tag) => (
