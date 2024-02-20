@@ -41,6 +41,34 @@ export const getHotels = action(getHotelsSchema, async ({userId, province}) => {
 export const postHotel = action(
   postHotelSchema,
   async ({name, description, province, userId, stars, hotelUrl}) => {
-    return "hola";
+    const someFormData = new FormData();
+    const dataObject = postHotelSchema.parse(someFormData);
+
+    try {
+      const rateLimitResult = await handleRateLimit();
+
+      if (rateLimitResult.error) {
+        return rateLimitResult;
+      }
+
+      const hotel = await prisma.hotels.create({
+        data: {
+          name,
+          description,
+          province,
+          stars,
+          hotel_url: hotelUrl,
+          user: {
+            connect: {
+              external_id: userId,
+            },
+          },
+        },
+      });
+
+      return {success: hotel};
+    } catch (err) {
+      return {error: err};
+    }
   },
 );

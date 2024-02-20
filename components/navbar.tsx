@@ -50,7 +50,7 @@ export default function Navbar() {
         <Card className="hidden sm:flex rounded-full md:w-[310px] py-[5px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
-              <li key={route.href} className="list-none">
+              <li key={`link-${route.href}`} className="list-none">
                 <LinkComponent href={route.href} text={route.text} />
               </li>
             ))}
@@ -83,7 +83,7 @@ export default function Navbar() {
         <Card className="rounded-full mx-2 w-[300px] sm:w-[310px] py-[11px] px-6">
           <ul className="flex w-full items-center justify-between">
             {routes.map((route) => (
-              <li key={route.href} className="list-none">
+              <li key={route.text} className="list-none">
                 <LinkComponent href={route.href} text={route.text} />
               </li>
             ))}
