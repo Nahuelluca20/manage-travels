@@ -18,11 +18,9 @@ module.exports = {
     extend: {
       colors: {
         zeppelinGray: {
-          100: "#00000080",
+          100: "#hls(204, 9%, 11%)",
         },
-        zeppelinOrange: {
-          500: "#FF642E",
-        },
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

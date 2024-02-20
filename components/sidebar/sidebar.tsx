@@ -23,7 +23,7 @@ export default function Sidebar({className, items, ...props}: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="w-full lg:w-[250px] lg:block flex justify-between flex-row-reverse items-center">
+    <div className="lg:w-[300px] w-full lg:h-full lg:min-h-screen py-8 px-4 lg:bg-card lg:block flex justify-between flex-row-reverse items-center">
       <div className="ml-1 h-[20px] gap-2">
         <UserButton
           showName
